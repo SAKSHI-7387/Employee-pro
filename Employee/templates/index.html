@@ -1,0 +1,32 @@
+<h1> Employee Management System </h1>
+
+<!--search form-->
+<from method = "GET">
+    <input type = "text" name = "search" placeholder = "Search Employee">
+    <button type = "submit">Search</button>
+
+<button> Search </button>
+</from>
+<br><br>
+<a href="/add/">Add Employee</a>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+    {% for employee in employees %}
+    <tr>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>
+            <a href="/update/{{ employee.id }}/">Edit</a>
+            <a href="/delete/{{ employee.id }}/">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
